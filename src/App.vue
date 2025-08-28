@@ -11,7 +11,7 @@
       </div>
 
       <!-- 问题区域 -->
-      <div class="question-container" v-else-if="currentStep <= 2 || currentStep === 'work' || currentStep === 'study' || currentStep === 'life' || currentStep === 'work-salary' || currentStep === 'work-workload' || currentStep === 'work-change-job'">
+      <div class="question-container" v-else-if="currentStep <= 2 || currentStep === 'work' || currentStep === 'study' || currentStep === 'life' || currentStep === 'work-salary' || currentStep === 'work-workload' || currentStep === 'work-change-job' || currentStep === 'study-seek-help' || currentStep === 'study-lower-goal' || currentStep === 'life-more-time' || currentStep === 'life-more-income'">
         <div class="question-card">
           <div class="question-number">第 {{ getQuestionNumber() }} 题</div>
           <div v-if="currentFlowTitle" class="flow-title">{{ currentFlowTitle }}</div>
@@ -272,42 +272,76 @@ export default {
                 { 
                   text: "Call人啊！寻求导师帮助，获得专业指导 👨‍🏫", 
                   value: "seek-help",
-                  nextAction: "continue"
+                  nextAction: "subflow",
+                  subflowType: "study-seek-help"
                 },
                 { 
                   text: "躺平吧！适当降低目标，减轻心理负担 🎯", 
                   value: "lower-goal",
-                  nextAction: "continue"
+                  nextAction: "subflow",
+                  subflowType: "study-lower-goal"
                 }
               ]
-            },
+            }
+          ]
+        },
+        
+        // 寻求帮助子流程
+        studySeekHelpFlow: {
+          title: "寻求帮助攻略 👨‍🏫",
+          questions: [
             {
               id: 4,
-              question: "当学习压力让你喘不过气时，你会？",
+              question: "如何更好地寻求帮助？",
               options: [
                 { 
-                  text: "咬牙坚持，熬夜学习 😰", 
-                  value: "persist",
+                  text: "主动预约导师，准备具体问题 📝", 
+                  value: "prepare-questions",
                   nextAction: "result",
-                  resultMessage: "选择咬牙坚持虽然很有毅力，但要注意劳逸结合。学习是一个长期过程，保持身心健康更重要！"
+                  resultMessage: "选择准备具体问题很专业！这样导师能更好地帮助你，效率会更高。记住，好的问题比好的答案更重要！"
                 },
                 { 
-                  text: "合理安排时间，劳逸结合 ⏰", 
-                  value: "balance",
+                  text: "找同学组队学习，互相督促 🤝", 
+                  value: "study-group",
                   nextAction: "result",
-                  resultMessage: "选择劳逸结合非常明智！合理安排时间，既能学习又能休息，这样效率会更高。"
+                  resultMessage: "选择组队学习很棒！团队合作能激发灵感，互相督促也能提高学习效率。"
                 },
                 { 
-                  text: "寻求同学帮助，共同进步 🤝", 
-                  value: "collaborate",
+                  text: "参加学习小组，利用集体智慧 🧠", 
+                  value: "collective-wisdom",
                   nextAction: "result",
-                  resultMessage: "选择寻求帮助是聪明的做法！学习不是一个人的战斗，和同学一起进步会更有动力。"
+                  resultMessage: "选择利用集体智慧很聪明！不同的人有不同的思路，能帮你打开新的学习视角。"
+                }
+              ]
+            }
+          ]
+        },
+        
+        // 降低目标子流程
+        studyLowerGoalFlow: {
+          title: "调整目标攻略 🎯",
+          questions: [
+            {
+              id: 4,
+              question: "如何科学地调整学习目标？",
+              options: [
+                { 
+                  text: "重新评估优先级，专注最重要的 📊", 
+                  value: "reprioritize",
+                  nextAction: "result",
+                  resultMessage: "选择重新评估优先级很明智！不是所有目标都同等重要，专注核心内容能让你学得更扎实。"
                 },
                 { 
-                  text: "调整心态，享受学习过程 😊", 
-                  value: "enjoy",
+                  text: "设定阶段性目标，循序渐进 🚀", 
+                  value: "step-by-step",
                   nextAction: "result",
-                  resultMessage: "选择享受学习过程很棒！保持积极心态，把学习当作成长的机会，压力就会变成动力。"
+                  resultMessage: "选择循序渐进很棒！大目标分解成小目标，每完成一个都会给你成就感，压力也会慢慢减轻。"
+                },
+                { 
+                  text: "给自己更多时间，不要急于求成 ⏰", 
+                  value: "more-time",
+                  nextAction: "result",
+                  resultMessage: "选择给自己更多时间很明智！学习是一个过程，不要因为一时的压力而放弃。慢一点没关系，重要的是坚持。"
                 }
               ]
             }
@@ -325,42 +359,76 @@ export default {
                 { 
                   text: "去tmd工作学习，老娘要请假去看看世界 🕐", 
                   value: "more-time",
-                  nextAction: "continue"
+                  nextAction: "subflow",
+                  subflowType: "life-more-time"
                 },
                 { 
                   text: "当卷王，接项目，挣小钱钱 💰", 
                   value: "more-income",
-                  nextAction: "continue"
+                  nextAction: "subflow",
+                  subflowType: "life-more-income"
                 }
               ]
-            },
+            }
+          ]
+        },
+        
+        // 更多时间子流程
+        lifeMoreTimeFlow: {
+          title: "时间管理攻略 🕐",
+          questions: [
             {
               id: 4,
-              question: "当生活压力让你感到疲惫时，你会？",
+              question: "如何更好地管理时间，给自己更多自由？",
               options: [
                 { 
-                  text: "默默承受，不告诉别人 😔", 
-                  value: "suffer",
+                  text: "制定时间表，高效完成任务 ⏰", 
+                  value: "time-schedule",
                   nextAction: "result",
-                  resultMessage: "选择默默承受不是好办法，你不需要一个人承担所有压力。家人朋友都很关心你，寻求帮助是勇敢的表现！"
+                  resultMessage: "选择制定时间表很棒！高效完成任务后，你就能有更多时间做自己喜欢的事情。记住，时间管理是门艺术！"
                 },
                 { 
-                  text: "寻求家人朋友支持 💕", 
-                  value: "seek-support",
+                  text: "学会说'不'，拒绝无意义的事情 🚫", 
+                  value: "learn-to-say-no",
                   nextAction: "result",
-                  resultMessage: "选择寻求支持很明智！家人朋友是你最坚强的后盾，和他们分享困难，一起想办法解决。"
+                  resultMessage: "选择学会说'不'很有勇气！不是所有事情都值得你花时间，保护自己的时间就是保护自己的快乐。"
                 },
                 { 
-                  text: "制定计划，逐步改善 📋", 
-                  value: "make-plan",
+                  text: "利用碎片时间，积少成多 🧩", 
+                  value: "fragment-time",
                   nextAction: "result",
-                  resultMessage: "选择制定计划很有条理！把大问题分解成小目标，一步一步来，压力就会慢慢减轻。"
+                  resultMessage: "选择利用碎片时间很聪明！每天挤出一点时间，积少成多，你就能实现看世界的梦想。"
+                }
+              ]
+            }
+          ]
+        },
+        
+        // 增加收入子流程
+        lifeMoreIncomeFlow: {
+          title: "增加收入攻略 💰",
+          questions: [
+            {
+              id: 4,
+              question: "如何安全地增加收入？",
+              options: [
+                { 
+                  text: "提升技能，接专业项目 🚀", 
+                  value: "upgrade-skills",
+                  nextAction: "result",
+                  resultMessage: "选择提升技能很明智！专业能力越强，收入就越高。投资自己永远是最划算的投资！"
                 },
                 { 
-                  text: "适当放松，给自己奖励 🎁", 
-                  value: "reward",
+                  text: "寻找副业机会，多元化收入 💼", 
+                  value: "side-business",
                   nextAction: "result",
-                  resultMessage: "选择给自己奖励很棒！生活需要仪式感，适当放松和奖励自己，让生活更有盼头。"
+                  resultMessage: "选择多元化收入很棒！不要把鸡蛋放在一个篮子里，副业既能增加收入，也能让你发现新的可能性。"
+                },
+                { 
+                  text: "理财投资，让钱生钱 📈", 
+                  value: "investment",
+                  nextAction: "result",
+                  resultMessage: "选择理财投资很聪明！但记住要学习相关知识，从小额开始，稳健投资。让钱为你工作！"
                 }
               ]
             }
@@ -396,6 +464,28 @@ export default {
         const flowQuestions = this.quizConfig[flowKey].questions
         const flowStep = this.answers.length - this.quizConfig.mainQuestions.length - 1 // 减去工作流程的第一题
         return flowQuestions[flowStep]
+      } else if (this.currentStep === "study-seek-help" || this.currentStep === "study-lower-goal") {
+        // 学习压力子流程
+        let flowKey
+        if (this.currentStep === "study-seek-help") {
+          flowKey = "studySeekHelpFlow"
+        } else if (this.currentStep === "study-lower-goal") {
+          flowKey = "studyLowerGoalFlow"
+        }
+        const flowQuestions = this.quizConfig[flowKey].questions
+        const flowStep = this.answers.length - this.quizConfig.mainQuestions.length - 1 // 减去学习流程的第一题
+        return flowQuestions[flowStep]
+      } else if (this.currentStep === "life-more-time" || this.currentStep === "life-more-income") {
+        // 生活压力子流程
+        let flowKey
+        if (this.currentStep === "life-more-time") {
+          flowKey = "lifeMoreTimeFlow"
+        } else if (this.currentStep === "life-more-income") {
+          flowKey = "lifeMoreIncomeFlow"
+        }
+        const flowQuestions = this.quizConfig[flowKey].questions
+        const flowStep = this.answers.length - this.quizConfig.mainQuestions.length - 1 // 减去生活流程的第一题
+        return flowQuestions[flowStep]
       }
       return null
     },
@@ -407,6 +497,10 @@ export default {
       if (this.currentStep === "work-salary") return this.quizConfig.workSalaryFlow.title
       if (this.currentStep === "work-workload") return this.quizConfig.workWorkloadFlow.title
       if (this.currentStep === "work-change-job") return this.quizConfig.workChangeJobFlow.title
+      if (this.currentStep === "study-seek-help") return this.quizConfig.studySeekHelpFlow.title
+      if (this.currentStep === "study-lower-goal") return this.quizConfig.studyLowerGoalFlow.title
+      if (this.currentStep === "life-more-time") return this.quizConfig.lifeMoreTimeFlow.title
+      if (this.currentStep === "life-more-income") return this.quizConfig.lifeMoreIncomeFlow.title
       return ""
     }
   },
@@ -566,6 +660,15 @@ export default {
         return this.currentStep
       } else if (this.currentStep === "work" || this.currentStep === "study" || this.currentStep === "life") {
         return this.quizConfig.mainQuestions.length + this.answers.length - this.quizConfig.mainQuestions.length + 1
+      } else if (this.currentStep === "work-salary" || this.currentStep === "work-workload" || this.currentStep === "work-change-job") {
+        // 工作压力子流程
+        return this.quizConfig.mainQuestions.length + 2 // 第3题 + 第4题
+      } else if (this.currentStep === "study-seek-help" || this.currentStep === "study-lower-goal") {
+        // 学习压力子流程
+        return this.quizConfig.mainQuestions.length + 2 // 第3题 + 第4题
+      } else if (this.currentStep === "life-more-time" || this.currentStep === "life-more-income") {
+        // 生活压力子流程
+        return this.quizConfig.mainQuestions.length + 2 // 第3题 + 第4题
       }
       return 1
     },
