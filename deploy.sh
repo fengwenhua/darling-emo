@@ -3,7 +3,7 @@
 echo "🚀 开始构建 darling-emo 应用..."
 
 # 构建应用
-npm run build
+pnpm run build
 
 if [ $? -eq 0 ]; then
     echo "✅ 构建成功！"

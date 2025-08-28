@@ -47,6 +47,36 @@
         </div>
       </div>
 
+      <!-- 温馨动画区域 -->
+      <div class="happy-container" v-else-if="currentStep === 'happy'">
+        <div class="happy-card">
+          <div class="celebration">
+            <div class="sparkles">
+              <span class="sparkle">✨</span>
+              <span class="sparkle">✨</span>
+              <span class="sparkle">✨</span>
+              <span class="sparkle">✨</span>
+              <span class="sparkle">✨</span>
+              <span class="sparkle">✨</span>
+            </div>
+            <h2 class="happy-title">🎉 太棒啦！</h2>
+            <p class="happy-text">老婆仔心情不错呢～</p>
+            <div class="happy-emoji">😊</div>
+            <p class="happy-message">继续保持这份好心情吧！</p>
+            <p class="happy-message">记住，你值得拥有快乐和幸福～</p>
+          </div>
+          
+          <div class="action-buttons">
+            <button class="action-btn primary" @click="restartQuiz">
+              重新开始 🔄
+            </button>
+            <button class="action-btn secondary" @click="goHome">
+              回到首页 🏠
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- 结果区域 -->
       <div class="result-container" v-else>
         <div class="result-card">
@@ -129,6 +159,10 @@ export default {
     
     selectOption(index) {
       this.selectedOption = index
+      // 自动进入下一题
+      this.$nextTick(() => {
+        this.nextQuestion()
+      })
     },
     
     nextQuestion() {
@@ -137,6 +171,12 @@ export default {
           question: this.currentQuestion.question,
           answer: this.currentQuestion.options[this.selectedOption]
         })
+        
+        // 如果第一题选择"否"，直接显示温馨动画
+        if (this.currentStep === 1 && this.currentQuestion.options[this.selectedOption].value === "no") {
+          this.currentStep = "happy"
+          return
+        }
         
         if (this.currentStep < this.questions.length) {
           this.currentStep++
@@ -337,6 +377,106 @@ export default {
 .next-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4);
+}
+
+/* 温馨动画区域样式 */
+.happy-container {
+  width: 100%;
+}
+
+.happy-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.celebration {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.sparkles {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 100px;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 2rem;
+  animation: sparkle 2s infinite;
+}
+
+.sparkle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.sparkle:nth-child(2) { left: 20%; animation-delay: 0.3s; }
+.sparkle:nth-child(3) { left: 30%; animation-delay: 0.6s; }
+.sparkle:nth-child(4) { left: 70%; animation-delay: 0.9s; }
+.sparkle:nth-child(5) { left: 80%; animation-delay: 1.2s; }
+.sparkle:nth-child(6) { left: 90%; animation-delay: 1.5s; }
+
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(0.5) rotate(0deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.2) rotate(180deg); 
+  }
+}
+
+.happy-title {
+  font-size: 2.5rem;
+  color: #2d3748;
+  margin-bottom: 15px;
+  font-weight: 700;
+  animation: bounce 1s ease-in-out;
+}
+
+.happy-text {
+  font-size: 1.3rem;
+  color: #4a5568;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-in-out 0.3s both;
+}
+
+.happy-emoji {
+  font-size: 4rem;
+  margin: 20px 0;
+  animation: bounce 1s ease-in-out 0.6s both;
+}
+
+.happy-message {
+  font-size: 1.1rem;
+  color: #718096;
+  margin-bottom: 10px;
+  animation: fadeInUp 1s ease-in-out 0.9s both;
+}
+
+.happy-message:last-of-type {
+  animation-delay: 1.2s;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-20px); }
+  60% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* 结果区域样式 */
