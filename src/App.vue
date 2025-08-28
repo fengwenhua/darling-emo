@@ -596,7 +596,7 @@ export default {
       console.log('prevQuestion called, currentStep:', this.currentStep, 'answers length:', this.answers.length)
       
       // 检查是否可以返回（包括子流程）
-      if (this.currentStep > 1 || this.currentStep === "work" || this.currentStep === "study" || this.currentStep === "life" || this.currentStep === "work-salary" || this.currentStep === "work-workload" || this.currentStep === "work-change-job" || this.currentStep === "result") {
+      if (this.currentStep > 1 || this.currentStep === "work" || this.currentStep === "study" || this.currentStep === "life" || this.currentStep === "work-salary" || this.currentStep === "work-workload" || this.currentStep === "work-change-job" || this.currentStep === "study-seek-help" || this.currentStep === "study-lower-goal" || this.currentStep === "life-more-time" || this.currentStep === "life-more-income" || this.currentStep === "result") {
         // 如果在子流程中，需要特殊处理
         if (this.currentStep === "work" || this.currentStep === "study" || this.currentStep === "life") {
           const currentFlow = this.currentStep
@@ -621,6 +621,18 @@ export default {
           // 从工作压力子流程返回
           console.log('Going back from work subflow')
           this.currentStep = "work"
+          this.answers.pop()
+          this.selectedOption = null
+        } else if (this.currentStep === "study-seek-help" || this.currentStep === "study-lower-goal") {
+          // 从学习压力子流程返回
+          console.log('Going back from study subflow')
+          this.currentStep = "study"
+          this.answers.pop()
+          this.selectedOption = null
+        } else if (this.currentStep === "life-more-time" || this.currentStep === "life-more-income") {
+          // 从生活压力子流程返回
+          console.log('Going back from life subflow')
+          this.currentStep = "life"
           this.answers.pop()
           this.selectedOption = null
         } else if (this.currentStep === "result") {
@@ -675,7 +687,7 @@ export default {
     
     canGoBack() {
       if (this.currentStep <= 1) return false
-      if (this.currentStep === "work" || this.currentStep === "study" || this.currentStep === "life" || this.currentStep === "work-salary" || this.currentStep === "work-workload" || this.currentStep === "work-change-job") {
+      if (this.currentStep === "work" || this.currentStep === "study" || this.currentStep === "life" || this.currentStep === "work-salary" || this.currentStep === "work-workload" || this.currentStep === "work-change-job" || this.currentStep === "study-seek-help" || this.currentStep === "study-lower-goal" || this.currentStep === "life-more-time" || this.currentStep === "life-more-income") {
         // 在子流程中，总是可以返回（因为至少已经选择了压力源）
         return true
       }
