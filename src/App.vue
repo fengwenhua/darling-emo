@@ -11,7 +11,7 @@
       </div>
 
       <!-- 问题区域 -->
-      <div class="question-container" v-else-if="currentStep <= 2 || currentStep === 'work' || currentStep === 'study' || currentStep === 'life'">
+      <div class="question-container" v-else-if="currentStep <= 2 || currentStep === 'work' || currentStep === 'study' || currentStep === 'life' || currentStep === 'work-salary' || currentStep === 'work-workload' || currentStep === 'work-change-job'">
         <div class="question-card">
           <div class="question-number">第 {{ getQuestionNumber() }} 题</div>
           <div v-if="currentFlowTitle" class="flow-title">{{ currentFlowTitle }}</div>
@@ -148,47 +148,113 @@ export default {
                 { 
                   text: "涨工资，让付出有回报 💰", 
                   value: "salary",
-                  nextAction: "continue"
+                  nextAction: "subflow",
+                  subflowType: "work-salary"
                 },
                 { 
                   text: "少干点活，多休息 ⏰", 
                   value: "workload",
-                  nextAction: "continue"
+                  nextAction: "subflow",
+                  subflowType: "work-workload"
                 },
                 { 
                   text: "换一份更轻松的工作 🔄", 
                   value: "change-job",
-                  nextAction: "continue"
+                  nextAction: "subflow",
+                  subflowType: "work-change-job"
                 }
               ]
-            },
+            }
+          ]
+        },
+        
+        // 涨工资子流程
+        workSalaryFlow: {
+          title: "涨工资攻略 💰",
+          questions: [
             {
               id: 4,
-              question: "如果领导不涨薪但继续增加工作量，你会？",
+              question: "为了涨工资，你愿意付出什么努力？",
               options: [
                 { 
-                  text: "默默接受，自愿加班 😔", 
-                  value: "accept",
+                  text: "提升技能，考取证书 📚", 
+                  value: "improve-skills",
                   nextAction: "result",
-                  resultMessage: "选择默默接受加班，虽然体现了你的责任心，但这样下去你会越来越累。记住，你的时间和精力也是宝贵的！"
+                  resultMessage: "选择提升技能很棒！这是涨工资最直接有效的方法。记住，投资自己永远不会亏本！"
                 },
                 { 
-                  text: "接受现实，但绝不加班 ⚡", 
-                  value: "no-overtime",
+                  text: "主动承担更多责任 💪", 
+                  value: "take-responsibility",
                   nextAction: "result",
-                  resultMessage: "选择不加班是对的！工作只是生活的一部分，你有权利享受属于自己的时间。"
+                  resultMessage: "选择承担责任很有担当！这样既能证明自己的价值，也能为涨工资创造条件。"
                 },
                 { 
-                  text: "委婉沟通，寻求理解 🤝", 
-                  value: "communicate",
+                  text: "寻找跳槽机会，货比三家 🔍", 
+                  value: "job-hunting",
                   nextAction: "result",
-                  resultMessage: "选择沟通是明智的！委婉地表达你的想法，让领导了解你的处境，这是解决问题的好方法。"
+                  resultMessage: "选择跳槽很明智！有时候换个环境，工资就能翻倍。记住，你值得更好的待遇！"
+                }
+              ]
+            }
+          ]
+        },
+        
+        // 减少工作量子流程
+        workWorkloadFlow: {
+          title: "减少工作量攻略 ⏰",
+          questions: [
+            {
+              id: 4,
+              question: "如何减少工作量？",
+              options: [
+                { 
+                  text: "提高工作效率，用工具自动化 🚀", 
+                  value: "improve-efficiency",
+                  nextAction: "result",
+                  resultMessage: "选择提高效率很聪明！用更少的时间完成更多工作，这样既能减少压力，又能保持产出。"
                 },
                 { 
-                  text: "硬气谈判，不涨薪就不干 💪", 
-                  value: "negotiate",
+                  text: "学会拒绝，不接超出能力的工作 🚫", 
+                  value: "learn-to-say-no",
                   nextAction: "result",
-                  resultMessage: "选择硬气谈判很有勇气！记住，你有选择的权利，不要害怕为自己争取应得的权益。"
+                  resultMessage: "选择学会拒绝很有勇气！不是所有工作都要接，保护自己的时间和精力很重要。"
+                },
+                { 
+                  text: "和领导沟通，重新分配任务 🤝", 
+                  value: "renegotiate-tasks",
+                  nextAction: "result",
+                  resultMessage: "选择和领导沟通很明智！合理的工作分配能让团队更高效，你也能有更多休息时间。"
+                }
+              ]
+            }
+          ]
+        },
+        
+        // 换工作子流程
+        workChangeJobFlow: {
+          title: "换工作攻略 🔄",
+          questions: [
+            {
+              id: 4,
+              question: "换工作前，你会做什么准备？",
+              options: [
+                { 
+                  text: "更新简历，提升技能 📝", 
+                  value: "update-resume",
+                  nextAction: "result",
+                  resultMessage: "选择更新简历很专业！好的准备是成功的一半，提升技能也能让你在面试中更有竞争力。"
+                },
+                { 
+                  text: "先找好下家，再辞职 🎯", 
+                  value: "find-next-job",
+                  nextAction: "result",
+                  resultMessage: "选择先找好下家很稳妥！这样既能保证收入，也能有更多选择的空间。"
+                },
+                { 
+                  text: "裸辞，给自己一个假期 🏖️", 
+                  value: "quit-directly",
+                  nextAction: "result",
+                  resultMessage: "选择裸辞很有魄力！有时候需要给自己一个重新开始的机会，但记得要规划好经济来源。"
                 }
               ]
             }
@@ -317,6 +383,19 @@ export default {
       } else if (this.currentStep === "life") {
         const lifeStep = this.answers.length - this.quizConfig.mainQuestions.length
         return this.quizConfig.lifeFlow.questions[lifeStep]
+      } else if (this.currentStep === "work-salary" || this.currentStep === "work-workload" || this.currentStep === "work-change-job") {
+        // 工作压力子流程
+        let flowKey
+        if (this.currentStep === "work-salary") {
+          flowKey = "workSalaryFlow"
+        } else if (this.currentStep === "work-workload") {
+          flowKey = "workWorkloadFlow"
+        } else if (this.currentStep === "work-change-job") {
+          flowKey = "workChangeJobFlow"
+        }
+        const flowQuestions = this.quizConfig[flowKey].questions
+        const flowStep = this.answers.length - this.quizConfig.mainQuestions.length - 1 // 减去工作流程的第一题
+        return flowQuestions[flowStep]
       }
       return null
     },
@@ -325,6 +404,9 @@ export default {
       if (this.currentStep === "work") return this.quizConfig.workFlow.title
       if (this.currentStep === "study") return this.quizConfig.studyFlow.title
       if (this.currentStep === "life") return this.quizConfig.lifeFlow.title
+      if (this.currentStep === "work-salary") return this.quizConfig.workSalaryFlow.title
+      if (this.currentStep === "work-workload") return this.quizConfig.workWorkloadFlow.title
+      if (this.currentStep === "work-change-job") return this.quizConfig.workChangeJobFlow.title
       return ""
     }
   },
@@ -345,20 +427,28 @@ export default {
     },
     
     nextQuestion() {
+      console.log('nextQuestion called, currentStep:', this.currentStep, 'selectedOption:', this.selectedOption)
+      
       if (this.selectedOption !== null) {
         const selectedOption = this.currentQuestion.options[this.selectedOption]
+        console.log('selectedOption:', selectedOption)
         
         this.answers.push({
           question: this.currentQuestion.question,
           answer: selectedOption
         })
         
+        console.log('nextAction:', selectedOption.nextAction, 'subflowType:', selectedOption.subflowType)
+        
         // 根据选项的nextAction决定下一步
         if (selectedOption.nextAction === "happy") {
+          console.log('Setting currentStep to happy')
           this.currentStep = "happy"
         } else if (selectedOption.nextAction === "subflow") {
+          console.log('Setting currentStep to subflow:', selectedOption.subflowType)
           this.currentStep = selectedOption.subflowType
         } else if (selectedOption.nextAction === "result") {
+          console.log('Setting currentStep to result')
           this.currentStep = "result"
         } else if (selectedOption.nextAction === "continue") {
           // 继续当前流程
@@ -367,8 +457,30 @@ export default {
             if (this.currentStep < this.quizConfig.mainQuestions.length) {
               this.currentStep++
             }
+          } else if (this.currentStep === "work") {
+            // 工作流程（第3题）
+            // 这里不需要继续，因为第3题已经选择了子流程
+          } else if (this.currentStep === "work-salary" || this.currentStep === "work-workload" || this.currentStep === "work-change-job") {
+            // 工作压力子流程
+            let flowKey
+            if (this.currentStep === "work-salary") {
+              flowKey = "workSalaryFlow"
+            } else if (this.currentStep === "work-workload") {
+              flowKey = "workWorkloadFlow"
+            } else if (this.currentStep === "work-change-job") {
+              flowKey = "workChangeJobFlow"
+            }
+            const currentFlowQuestions = this.quizConfig[flowKey].questions
+            const currentFlowStep = this.answers.length - this.quizConfig.mainQuestions.length - 1 // 减去工作流程的第一题
+            
+            if (currentFlowStep < currentFlowQuestions.length) {
+              // 还有更多问题，继续
+            } else {
+              // 子流程完成，显示结果
+              this.currentStep = "result"
+            }
           } else {
-            // 子流程
+            // 其他子流程
             const currentFlow = this.currentStep
             const currentFlowQuestions = this.quizConfig[`${currentFlow}Flow`].questions
             const currentFlowStep = this.answers.length - this.quizConfig.mainQuestions.length
@@ -390,7 +502,7 @@ export default {
       console.log('prevQuestion called, currentStep:', this.currentStep, 'answers length:', this.answers.length)
       
       // 检查是否可以返回（包括子流程）
-      if (this.currentStep > 1 || this.currentStep === "work" || this.currentStep === "study" || this.currentStep === "life" || this.currentStep === "result") {
+      if (this.currentStep > 1 || this.currentStep === "work" || this.currentStep === "study" || this.currentStep === "life" || this.currentStep === "work-salary" || this.currentStep === "work-workload" || this.currentStep === "work-change-job" || this.currentStep === "result") {
         // 如果在子流程中，需要特殊处理
         if (this.currentStep === "work" || this.currentStep === "study" || this.currentStep === "life") {
           const currentFlow = this.currentStep
@@ -411,14 +523,24 @@ export default {
             this.answers.pop()
             this.selectedOption = null
           }
+        } else if (this.currentStep === "work-salary" || this.currentStep === "work-workload" || this.currentStep === "work-change-job") {
+          // 从工作压力子流程返回
+          console.log('Going back from work subflow')
+          this.currentStep = "work"
+          this.answers.pop()
+          this.selectedOption = null
         } else if (this.currentStep === "result") {
           // 从结果页返回，需要回到对应的子流程
           console.log('Going back from result page')
           const lastAnswer = this.answers[this.answers.length - 1]
           if (lastAnswer && lastAnswer.answer.value) {
             // 根据最后一个答案判断是哪个流程
-            if (["accept", "no-overtime", "communicate", "negotiate"].includes(lastAnswer.answer.value)) {
-              this.currentStep = "work"
+            if (["improve-skills", "take-responsibility", "job-hunting"].includes(lastAnswer.answer.value)) {
+              this.currentStep = "work-salary"
+            } else if (["improve-efficiency", "learn-to-say-no", "renegotiate-tasks"].includes(lastAnswer.answer.value)) {
+              this.currentStep = "work-workload"
+            } else if (["update-resume", "find-next-job", "quit-directly"].includes(lastAnswer.answer.value)) {
+              this.currentStep = "work-change-job"
             } else if (["persist", "balance", "collaborate", "enjoy"].includes(lastAnswer.answer.value)) {
               this.currentStep = "study"
             } else if (["suffer", "seek-support", "make-plan", "reward"].includes(lastAnswer.answer.value)) {
@@ -450,7 +572,7 @@ export default {
     
     canGoBack() {
       if (this.currentStep <= 1) return false
-      if (this.currentStep === "work" || this.currentStep === "study" || this.currentStep === "life") {
+      if (this.currentStep === "work" || this.currentStep === "study" || this.currentStep === "life" || this.currentStep === "work-salary" || this.currentStep === "work-workload" || this.currentStep === "work-change-job") {
         // 在子流程中，总是可以返回（因为至少已经选择了压力源）
         return true
       }
