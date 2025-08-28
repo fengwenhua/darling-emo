@@ -1,0 +1,18 @@
+{
+  "name": "darling-emo",
+  "version": "1.0.0",
+  "description": "一个帮助老婆仔走出emo困境的暖心网站",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vite": "^4.4.5"
+  }
+}
