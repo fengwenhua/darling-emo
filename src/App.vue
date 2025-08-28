@@ -375,29 +375,29 @@ export default {
         
         // 更多时间子流程
         lifeMoreTimeFlow: {
-          title: "时间管理攻略 🕐",
+          title: "看世界攻略 🌍",
           questions: [
             {
               id: 4,
-              question: "如何更好地管理时间，给自己更多自由？",
+              question: "为了实现看世界的梦想，你愿意怎么做？",
               options: [
                 { 
-                  text: "制定时间表，高效完成任务 ⏰", 
-                  value: "time-schedule",
+                  text: "制定旅行计划，设定具体目标 🗺️", 
+                  value: "travel-plan",
                   nextAction: "result",
-                  resultMessage: "选择制定时间表很棒！高效完成任务后，你就能有更多时间做自己喜欢的事情。记住，时间管理是门艺术！"
+                  resultMessage: "选择制定旅行计划很棒！有目标才有动力，先从小地方开始，慢慢实现看世界的梦想。记住，每个伟大的旅程都始于第一步！"
                 },
                 { 
-                  text: "学会说'不'，拒绝无意义的事情 🚫", 
-                  value: "learn-to-say-no",
+                  text: "学会时间管理，为旅行攒假期 ⏰", 
+                  value: "time-management",
                   nextAction: "result",
-                  resultMessage: "选择学会说'不'很有勇气！不是所有事情都值得你花时间，保护自己的时间就是保护自己的快乐。"
+                  resultMessage: "选择时间管理很明智！合理安排工作，高效完成任务，你就能有更多假期去看世界。时间就是金钱，更是自由！"
                 },
                 { 
-                  text: "利用碎片时间，积少成多 🧩", 
-                  value: "fragment-time",
+                  text: "寻找远程工作机会，边工作边旅行 💻", 
+                  value: "remote-work",
                   nextAction: "result",
-                  resultMessage: "选择利用碎片时间很聪明！每天挤出一点时间，积少成多，你就能实现看世界的梦想。"
+                  resultMessage: "选择远程工作很有远见！科技让世界变小，你可以在任何地方工作，同时体验不同的文化和风景。这才是真正的自由！"
                 }
               ]
             }
