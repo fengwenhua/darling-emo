@@ -113,7 +113,7 @@ export default {
           },
           {
             id: 2,
-            question: "主要是什么原因让你emo呢？",
+            question: "为啥emo了呀？",
             options: [
               { 
                 text: "工作压力大 💼", 
@@ -143,7 +143,7 @@ export default {
           questions: [
             {
               id: 3,
-              question: "面对工作压力，你最希望发生什么改变？",
+              question: "面对工作压力，你最希望发生什么？",
               options: [
                 { 
                   text: "涨工资，让付出有回报 💰", 
@@ -151,7 +151,7 @@ export default {
                   nextAction: "continue"
                 },
                 { 
-                  text: "减少工作量，有更多休息时间 ⏰", 
+                  text: "少干点活，多休息 ⏰", 
                   value: "workload",
                   nextAction: "continue"
                 },
@@ -204,17 +204,12 @@ export default {
               question: "面对学习压力，你最希望发生什么改变？",
               options: [
                 { 
-                  text: "调整学习计划，更合理安排时间 📅", 
-                  value: "adjust-plan",
-                  nextAction: "continue"
-                },
-                { 
-                  text: "寻求导师帮助，获得专业指导 👨‍🏫", 
+                  text: "Call人啊！寻求导师帮助，获得专业指导 👨‍🏫", 
                   value: "seek-help",
                   nextAction: "continue"
                 },
                 { 
-                  text: "适当降低目标，减轻心理负担 🎯", 
+                  text: "躺平吧！适当降低目标，减轻心理负担 🎯", 
                   value: "lower-goal",
                   nextAction: "continue"
                 }
@@ -262,17 +257,12 @@ export default {
               question: "面对生活压力，你最希望发生什么改变？",
               options: [
                 { 
-                  text: "有更多自由时间，做自己喜欢的事 🕐", 
+                  text: "去tmd工作学习，老娘要请假去看看世界 🕐", 
                   value: "more-time",
                   nextAction: "continue"
                 },
                 { 
-                  text: "改善居住环境，让生活更舒适 🏡", 
-                  value: "better-home",
-                  nextAction: "continue"
-                },
-                { 
-                  text: "增加收入来源，减轻经济压力 💰", 
+                  text: "当卷王，接项目，挣小钱钱 💰", 
                   value: "more-income",
                   nextAction: "continue"
                 }
