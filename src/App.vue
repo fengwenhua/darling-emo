@@ -180,19 +180,19 @@ export default {
                   text: "提升技能，考取证书 📚", 
                   value: "improve-skills",
                   nextAction: "result",
-                  resultMessage: "选择提升技能很棒！这是涨工资最直接有效的方法。记住，投资自己永远不会亏本！"
+                  resultMessage: "软考高级一过，直接就是专家。记住，投资自己永远不会亏本！"
                 },
                 { 
                   text: "主动承担更多责任 💪", 
                   value: "take-responsibility",
                   nextAction: "result",
-                  resultMessage: "选择承担责任很有担当！这样既能证明自己的价值，也能为涨工资创造条件。"
+                  resultMessage: "承担更多责任是涨工资的前提条件。当然，黑心资本家没良心，估计主动给你涨薪会很难！"
                 },
                 { 
                   text: "寻找跳槽机会，货比三家 🔍", 
                   value: "job-hunting",
                   nextAction: "result",
-                  resultMessage: "选择跳槽很明智！有时候换个环境，工资就能翻倍。记住，你值得更好的待遇！"
+                  resultMessage: "跳槽才是涨薪的最快路径。记住，你值得更好的待遇！"
                 }
               ]
             }
@@ -217,13 +217,13 @@ export default {
                   text: "学会拒绝，不接超出能力的工作 🚫", 
                   value: "learn-to-say-no",
                   nextAction: "result",
-                  resultMessage: "选择学会拒绝很有勇气！不是所有工作都要接，保护自己的时间和精力很重要。"
+                  resultMessage: "干不了一点！不是所有工作都要接，保护自己的时间和精力很重要。"
                 },
                 { 
                   text: "和领导沟通，重新分配任务 🤝", 
                   value: "renegotiate-tasks",
                   nextAction: "result",
-                  resultMessage: "选择和领导沟通很明智！合理的工作分配能让团队更高效，你也能有更多休息时间。"
+                  resultMessage: "选择和领导沟通很明智！不要担心领导会怎么想你，你只是合理表达你的诉求。"
                 }
               ]
             }
@@ -254,7 +254,7 @@ export default {
                   text: "裸辞，给自己一个假期 🏖️", 
                   value: "quit-directly",
                   nextAction: "result",
-                  resultMessage: "选择裸辞很有魄力！有时候需要给自己一个重新开始的机会，但记得要规划好经济来源。"
+                  resultMessage: "选择裸辞很有魄力！有时候需要给自己一个重新开始的机会，放心，有老公仔养你呀。"
                 }
               ]
             }
