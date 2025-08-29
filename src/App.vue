@@ -150,11 +150,7 @@
               </g>
             </g>
             
-            <!-- 交互提示 -->
-            <g class="interaction-hint" transform="translate(300, 120)" @click="petDog" style="cursor: pointer;">
-              <circle cx="0" cy="0" r="8" fill="#FFD700" opacity="0.8"/>
-              <text x="0" y="3" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">点击我</text>
-            </g>
+
           </svg>
         </div>
         
