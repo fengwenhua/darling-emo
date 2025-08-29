@@ -413,22 +413,16 @@ export default {
               question: "如何安全地增加收入？",
               options: [
                 { 
-                  text: "提升技能，接专业项目 🚀", 
-                  value: "upgrade-skills",
-                  nextAction: "result",
-                  resultMessage: "选择提升技能很明智！专业能力越强，收入就越高。投资自己永远是最划算的投资！"
-                },
-                { 
                   text: "寻找副业机会，多元化收入 💼", 
                   value: "side-business",
                   nextAction: "result",
-                  resultMessage: "选择多元化收入很棒！不要把鸡蛋放在一个篮子里，副业既能增加收入，也能让你发现新的可能性。"
+                  resultMessage: "不是吧？不是吧？你还真的不够累，还要再接项目？"
                 },
                 { 
                   text: "理财投资，让钱生钱 📈", 
                   value: "investment",
                   nextAction: "result",
-                  resultMessage: "选择理财投资很聪明！但记住要学习相关知识，从小额开始，稳健投资。让钱为你工作！"
+                  resultMessage: "算了吧，咱们没有这个天赋，还不如银行存定期～～"
                 }
               ]
             }
