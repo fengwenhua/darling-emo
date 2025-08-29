@@ -339,6 +339,12 @@ export default {
               id: 4,
               question: "为了涨工资，你愿意付出什么努力？",
               options: [
+              { 
+                  text: "委婉的申请加薪 💰", 
+                  value: "ask-for-raise",
+                  nextAction: "result",
+                  resultMessage: "委婉的提出，你现在工作量大，但是工资低，要求涨薪。"
+                },
                 { 
                   text: "提升技能，考取证书 📚", 
                   value: "improve-skills",
@@ -355,7 +361,7 @@ export default {
                   text: "寻找跳槽机会，货比三家 🔍", 
                   value: "job-hunting",
                   nextAction: "result",
-                  resultMessage: "跳槽才是涨薪的最快路径。记住，你值得更好的待遇！"
+                  resultMessage: "先面试拿到offer，然后硬气点要求涨薪，不涨薪直接跳槽，跳槽才是涨薪的最快路径。记住，你值得更好的待遇！"
                 }
               ]
             }
@@ -405,7 +411,7 @@ export default {
                   text: "更新简历，提升技能 📝", 
                   value: "update-resume",
                   nextAction: "result",
-                  resultMessage: "选择更新简历很专业！好的准备是成功的一半，提升技能也能让你在面试中更有竞争力。"
+                  resultMessage: "有空刷一下Boss直聘，看看现在的岗位什么薪资什么要求，先从简历修改开始吧～"
                 },
                 { 
                   text: "先找好下家，再辞职 🎯", 
@@ -470,10 +476,10 @@ export default {
                   resultMessage: "选择组队学习很棒！团队合作能激发灵感，互相督促也能提高学习效率。"
                 },
                 { 
-                  text: "参加学习小组，利用集体智慧 🧠", 
+                  text: "大喊一声，老公仔救命啊！！ 💗", 
                   value: "collective-wisdom",
                   nextAction: "result",
-                  resultMessage: "选择利用集体智慧很聪明！不同的人有不同的思路，能帮你打开新的学习视角。"
+                  resultMessage: "老公仔会的 == 老婆仔会的！！"
                 }
               ]
             }
