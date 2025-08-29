@@ -56,45 +56,45 @@
             <!-- 老公 -->
             <g class="husband" transform="translate(150, 180)">
               <!-- 头部 -->
-              <circle cx="0" cy="0" r="15" fill="url(#husbandGradient)"/>
+              <circle cx="0" cy="0" r="18" fill="url(#husbandGradient)"/>
               <!-- 头发 -->
-              <path d="M -12 -15 Q 0 -25 12 -15" fill="url(#husbandGradient)"/>
+              <path d="M -15 -18 Q 0 -30 15 -18" fill="url(#husbandGradient)"/>
               <!-- 身体 -->
-              <rect x="-12" y="15" width="24" height="35" fill="url(#husbandGradient)" rx="12"/>
+              <rect x="-16" y="18" width="32" height="40" fill="url(#husbandGradient)" rx="16"/>
               <!-- 手臂 -->
-              <rect x="-20" y="20" width="8" height="25" fill="url(#husbandGradient)" rx="4" transform="rotate(-15, -20, 20)"/>
+              <rect x="-25" y="22" width="10" height="28" fill="url(#husbandGradient)" rx="5" transform="rotate(-15, -25, 22)"/>
               <!-- 腿 -->
-              <rect x="-8" y="50" width="6" height="20" fill="url(#husbandGradient)" rx="3"/>
-              <rect x="2" y="50" width="6" height="20" fill="url(#husbandGradient)" rx="3"/>
+              <rect x="-10" y="58" width="8" height="22" fill="url(#husbandGradient)" rx="4"/>
+              <rect x="2" y="58" width="8" height="22" fill="url(#husbandGradient)" rx="4"/>
               <!-- 眼睛 -->
-              <circle cx="-5" cy="-3" r="2" fill="#333"/>
-              <circle cx="5" cy="-3" r="2" fill="#333"/>
+              <circle cx="-6" cy="-4" r="2.5" fill="#333"/>
+              <circle cx="6" cy="-4" r="2.5" fill="#333"/>
               <!-- 嘴巴 -->
-              <path d="M -3 5 Q 0 8 3 5" stroke="#333" stroke-width="1.5" fill="none"/>
+              <path d="M -4 6 Q 0 10 4 6" stroke="#333" stroke-width="2" fill="none"/>
             </g>
             
             <!-- 老婆 -->
             <g class="wife" transform="translate(200, 180)">
               <!-- 头部 -->
-              <circle cx="0" cy="0" r="15" fill="url(#wifeGradient)"/>
+              <circle cx="0" cy="0" r="13" fill="url(#wifeGradient)"/>
               <!-- 头发 -->
-              <path d="M -15 -15 Q 0 -30 15 -15" fill="url(#wifeGradient)"/>
+              <path d="M -12 -13 Q 0 -22 12 -13" fill="url(#wifeGradient)"/>
               <!-- 身体 -->
-              <rect x="-12" y="15" width="24" height="35" fill="url(#wifeGradient)" rx="12"/>
+              <rect x="-10" y="13" width="20" height="28" fill="url(#wifeGradient)" rx="10"/>
               <!-- 手臂 -->
-              <rect x="12" y="20" width="8" height="25" fill="url(#wifeGradient)" rx="4" transform="rotate(15, 12, 20)"/>
+              <rect x="10" y="16" width="6" height="20" fill="url(#wifeGradient)" rx="3" transform="rotate(15, 10, 16)"/>
               <!-- 腿 -->
-              <rect x="-8" y="50" width="6" height="20" fill="url(#wifeGradient)" rx="3"/>
-              <rect x="2" y="50" width="6" height="20" fill="url(#wifeGradient)" rx="3"/>
+              <rect x="-6" y="41" width="5" height="16" fill="url(#wifeGradient)" rx="2.5"/>
+              <rect x="1" y="41" width="5" height="16" fill="url(#wifeGradient)" rx="2.5"/>
               <!-- 眼睛 -->
-              <circle cx="-5" cy="-3" r="2" fill="#333"/>
-              <circle cx="5" cy="-3" r="2" fill="#333"/>
+              <circle cx="-4" cy="-2" r="1.8" fill="#333"/>
+              <circle cx="4" cy="-2" r="1.8" fill="#333"/>
               <!-- 嘴巴 -->
-              <path d="M -3 5 Q 0 8 3 5" stroke="#333" stroke-width="1.5" fill="none"/>
+              <path d="M -2 4 Q 0 6 2 4" stroke="#333" stroke-width="1.2" fill="none"/>
             </g>
             
             <!-- 遛狗绳 -->
-            <path class="leash" d="M 200 180 Q 250 150 300 180" stroke="#8B4513" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="5,5"/>
+            <path class="leash" d="M 200 175 Q 250 145 300 180" stroke="#8B4513" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="5,5"/>
             
             <!-- 可爱小狗 -->
             <g class="dog" transform="translate(300, 180)" @click="petDog" style="cursor: pointer;">
@@ -1232,7 +1232,7 @@ export default {
     transform: translate(200px, 180px) translateY(0px);
   }
   50% {
-    transform: translate(200px, 180px) translateY(-3px);
+    transform: translate(200px, 180px) translateY(-2px);
   }
 }
 
