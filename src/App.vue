@@ -3,6 +3,167 @@
     <div class="container">
       <!-- 标题区域 -->
       <div class="header" v-if="currentStep === 0">
+        <!-- 可爱的小狗遛狗动画 -->
+        <div class="dog-walking-animation">
+          <svg class="dog-svg" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- 渐变定义 -->
+            <defs>
+              <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+              </linearGradient>
+              <linearGradient id="grassGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#90EE90;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#32CD32;stop-opacity:1" />
+              </linearGradient>
+              <linearGradient id="husbandGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FFB6C1;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FF69B4;stop-opacity:1" />
+              </linearGradient>
+              <linearGradient id="wifeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#DDA0DD;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#9370DB;stop-opacity:1" />
+              </linearGradient>
+              <linearGradient id="dogGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#F4A460;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#D2691E;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            
+            <!-- 背景 -->
+            <rect width="500" height="300" fill="url(#skyGradient)"/>
+            <rect x="0" y="200" width="500" height="100" fill="url(#grassGradient)"/>
+            
+            <!-- 云朵 -->
+            <g class="clouds">
+              <g class="cloud" transform="translate(80, 50)">
+                <ellipse cx="0" cy="0" rx="30" ry="18" fill="white" opacity="0.9"/>
+                <ellipse cx="25" cy="-5" rx="20" ry="15" fill="white" opacity="0.9"/>
+                <ellipse cx="-20" cy="-3" rx="18" ry="12" fill="white" opacity="0.9"/>
+              </g>
+              <g class="cloud" transform="translate(380, 40)">
+                <ellipse cx="0" cy="0" rx="25" ry="15" fill="white" opacity="0.8"/>
+                <ellipse cx="20" cy="-3" rx="18" ry="12" fill="white" opacity="0.8"/>
+                <ellipse cx="-18" cy="-2" rx="15" ry="10" fill="white" opacity="0.8"/>
+              </g>
+              <g class="cloud" transform="translate(250, 35)">
+                <ellipse cx="0" cy="0" rx="22" ry="14" fill="white" opacity="0.7"/>
+                <ellipse cx="18" cy="-4" rx="16" ry="11" fill="white" opacity="0.7"/>
+                <ellipse cx="-16" cy="-1" rx="14" ry="9" fill="white" opacity="0.7"/>
+              </g>
+            </g>
+            
+            <!-- 老公 -->
+            <g class="husband" transform="translate(150, 180)">
+              <!-- 头部 -->
+              <circle cx="0" cy="0" r="15" fill="url(#husbandGradient)"/>
+              <!-- 头发 -->
+              <path d="M -12 -15 Q 0 -25 12 -15" fill="url(#husbandGradient)"/>
+              <!-- 身体 -->
+              <rect x="-12" y="15" width="24" height="35" fill="url(#husbandGradient)" rx="12"/>
+              <!-- 手臂 -->
+              <rect x="-20" y="20" width="8" height="25" fill="url(#husbandGradient)" rx="4" transform="rotate(-15, -20, 20)"/>
+              <!-- 腿 -->
+              <rect x="-8" y="50" width="6" height="20" fill="url(#husbandGradient)" rx="3"/>
+              <rect x="2" y="50" width="6" height="20" fill="url(#husbandGradient)" rx="3"/>
+              <!-- 眼睛 -->
+              <circle cx="-5" cy="-3" r="2" fill="#333"/>
+              <circle cx="5" cy="-3" r="2" fill="#333"/>
+              <!-- 嘴巴 -->
+              <path d="M -3 5 Q 0 8 3 5" stroke="#333" stroke-width="1.5" fill="none"/>
+            </g>
+            
+            <!-- 老婆 -->
+            <g class="wife" transform="translate(200, 180)">
+              <!-- 头部 -->
+              <circle cx="0" cy="0" r="15" fill="url(#wifeGradient)"/>
+              <!-- 头发 -->
+              <path d="M -15 -15 Q 0 -30 15 -15" fill="url(#wifeGradient)"/>
+              <!-- 身体 -->
+              <rect x="-12" y="15" width="24" height="35" fill="url(#wifeGradient)" rx="12"/>
+              <!-- 手臂 -->
+              <rect x="12" y="20" width="8" height="25" fill="url(#wifeGradient)" rx="4" transform="rotate(15, 12, 20)"/>
+              <!-- 腿 -->
+              <rect x="-8" y="50" width="6" height="20" fill="url(#wifeGradient)" rx="3"/>
+              <rect x="2" y="50" width="6" height="20" fill="url(#wifeGradient)" rx="3"/>
+              <!-- 眼睛 -->
+              <circle cx="-5" cy="-3" r="2" fill="#333"/>
+              <circle cx="5" cy="-3" r="2" fill="#333"/>
+              <!-- 嘴巴 -->
+              <path d="M -3 5 Q 0 8 3 5" stroke="#333" stroke-width="1.5" fill="none"/>
+            </g>
+            
+            <!-- 遛狗绳 -->
+            <path class="leash" d="M 200 180 Q 250 150 300 180" stroke="#8B4513" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="5,5"/>
+            
+            <!-- 可爱小狗 -->
+            <g class="dog" transform="translate(300, 180)" @click="petDog" style="cursor: pointer;">
+              <!-- 身体 -->
+              <ellipse cx="0" cy="0" rx="25" ry="15" fill="url(#dogGradient)"/>
+              <!-- 头部 -->
+              <circle cx="20" cy="-10" r="18" fill="url(#dogGradient)"/>
+              <!-- 耳朵 -->
+              <ellipse cx="15" cy="-25" rx="6" ry="12" fill="#8B4513" transform="rotate(-20, 15, -25)"/>
+              <ellipse cx="25" cy="-25" rx="6" ry="12" fill="#8B4513" transform="rotate(20, 25, -25)"/>
+              <!-- 眼睛 -->
+              <circle cx="23" cy="-12" r="3" fill="#333"/>
+              <circle cx="17" cy="-12" r="3" fill="#333"/>
+              <circle cx="23" cy="-12" r="1" fill="#fff"/>
+              <circle cx="17" cy="-12" r="1" fill="#fff"/>
+              <!-- 鼻子 -->
+              <circle cx="30" cy="-6" r="2" fill="#000"/>
+              <!-- 嘴巴 -->
+              <path d="M 30 -4 Q 28 -1 26 -4" stroke="#000" stroke-width="2" fill="none"/>
+              <!-- 舌头 -->
+              <ellipse cx="28" cy="-1" rx="3" ry="2" fill="#FF69B4"/>
+              <!-- 尾巴 -->
+              <path class="tail" d="M -25 0 Q -40 -15 -30 -5" stroke="#8B4513" stroke-width="6" fill="none" stroke-linecap="round"/>
+              <!-- 腿 -->
+              <rect x="-20" y="12" width="5" height="12" fill="url(#dogGradient)" rx="2.5"/>
+              <rect x="-10" y="12" width="5" height="12" fill="url(#dogGradient)" rx="2.5"/>
+              <rect x="10" y="12" width="5" height="12" fill="url(#dogGradient)" rx="2.5"/>
+              <rect x="15" y="12" width="5" height="12" fill="url(#dogGradient)" rx="2.5"/>
+              <!-- 爪子 -->
+              <circle cx="-20" cy="24" r="2" fill="#8B4513"/>
+              <circle cx="-10" cy="24" r="2" fill="#8B4513"/>
+              <circle cx="10" cy="24" r="2" fill="#8B4513"/>
+              <circle cx="20" cy="24" r="2" fill="#8B4513"/>
+            </g>
+            
+            <!-- 装饰元素 -->
+            <g class="decorations">
+              <!-- 小骨头 -->
+              <g class="bone" transform="translate(350, 220)">
+                <rect x="-8" y="-2" width="16" height="4" fill="#F4A460" rx="2"/>
+                <rect x="-2" y="-8" width="4" height="16" fill="#F4A460" rx="2"/>
+              </g>
+              <!-- 小花朵 -->
+              <g class="flower" transform="translate(80, 220)">
+                <circle cx="0" cy="0" r="4" fill="#FF69B4"/>
+                <circle cx="0" cy="0" r="3" fill="#FF1493"/>
+                <circle cx="0" cy="0" r="2" fill="#FF1493"/>
+              </g>
+              <!-- 小蝴蝶 -->
+              <g class="butterfly" transform="translate(420, 100)">
+                <path d="M 0 0 Q -5 -5 -10 0 Q -5 5 0 0" fill="#FFB6C1"/>
+                <path d="M 0 0 Q 5 -5 10 0 Q 5 5 0 0" fill="#FFB6C1"/>
+              </g>
+            </g>
+            
+            <!-- 交互提示 -->
+            <g class="interaction-hint" transform="translate(300, 120)" @click="petDog" style="cursor: pointer;">
+              <circle cx="0" cy="0" r="8" fill="#FFD700" opacity="0.8"/>
+              <text x="0" y="3" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">点击我</text>
+            </g>
+          </svg>
+        </div>
+        
+        <!-- 小狗状态消息 -->
+        <div v-if="dogState !== 'normal'" class="dog-message" :class="dogState">
+          <span v-if="dogState === 'happy'">🐕 汪汪！好开心被你抚摸～</span>
+          <span v-else-if="dogState === 'excited'">🐕 汪汪汪！超级兴奋！继续抚摸我吧！</span>
+        </div>
+        
         <h1 class="title">亲爱的老婆仔 💕</h1>
         <p class="subtitle">让我们一起走出emo困境吧</p>
         <div class="start-btn" @click="startQuiz">
@@ -90,6 +251,8 @@ export default {
       currentStep: 0,
       selectedOption: null,
       answers: [],
+      dogState: 'normal', // 小狗状态：normal, happy, excited
+      dogClickCount: 0, // 点击次数
       
       // 🎯 所有题目配置 - 在这里修改题目内容
       quizConfig: {
@@ -712,6 +875,35 @@ export default {
       this.currentStep = 0
       this.answers = []
       this.selectedOption = null
+    },
+    
+    petDog() {
+      this.dogClickCount++
+      
+      if (this.dogClickCount === 1) {
+        this.dogState = 'happy'
+        // 显示开心消息
+        setTimeout(() => {
+          this.dogState = 'normal'
+        }, 2000)
+      } else if (this.dogClickCount === 3) {
+        this.dogState = 'excited'
+        // 显示兴奋消息
+        setTimeout(() => {
+          this.dogState = 'normal'
+        }, 3000)
+      } else if (this.dogClickCount >= 5) {
+        this.dogState = 'excited'
+        // 显示超级兴奋消息
+        setTimeout(() => {
+          this.dogState = 'normal'
+        }, 4000)
+      }
+      
+      // 重置点击次数（每10次重置）
+      if (this.dogClickCount >= 10) {
+        this.dogClickCount = 0
+      }
     }
   }
 }
@@ -962,6 +1154,321 @@ export default {
   
   .action-btn {
     width: 100%;
+  }
+  
+  .dog-walking-animation {
+    margin-bottom: 20px;
+  }
+  
+  .dog-svg {
+    width: 280px;
+    height: 140px;
+  }
+}
+
+/* 小狗遛狗动画样式 */
+.dog-walking-animation {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dog-svg {
+  width: 500px;
+  height: 300px;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* 云朵动画 */
+.clouds ellipse {
+  animation: float 3s ease-in-out infinite;
+}
+
+.clouds ellipse:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.clouds ellipse:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.clouds ellipse:nth-child(3) {
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* 老公动画 */
+.husband {
+  animation: husbandWalk 2s ease-in-out infinite;
+}
+
+@keyframes husbandWalk {
+  0%, 100% {
+    transform: translate(150px, 180px) translateY(0px);
+  }
+  50% {
+    transform: translate(150px, 180px) translateY(-3px);
+  }
+}
+
+/* 老婆动画 */
+.wife {
+  animation: wifeWalk 2.2s ease-in-out infinite;
+}
+
+@keyframes wifeWalk {
+  0%, 100% {
+    transform: translate(200px, 180px) translateY(0px);
+  }
+  50% {
+    transform: translate(200px, 180px) translateY(-3px);
+  }
+}
+
+/* 遛狗绳动画 */
+.leash {
+  animation: leashWave 1.5s ease-in-out infinite;
+  transform-origin: 200px 180px;
+}
+
+@keyframes leashWave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+/* 小狗动画 */
+.dog {
+  animation: dogWalk 2.5s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.dog:hover {
+  transform: scale(1.05);
+}
+
+@keyframes dogWalk {
+  0%, 100% {
+    transform: translate(300px, 180px) translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(300px, 180px) translateY(-2px) rotate(1deg);
+  }
+  50% {
+    transform: translate(300px, 180px) translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translate(300px, 180px) translateY(-2px) rotate(-1deg);
+  }
+}
+
+/* 小狗尾巴动画 */
+.tail {
+  animation: tailWag 1s ease-in-out infinite;
+  transform-origin: -25px 0px;
+}
+
+@keyframes tailWag {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+}
+
+/* 小狗耳朵动画 */
+.dog ellipse {
+  animation: earWiggle 2s ease-in-out infinite;
+}
+
+.dog ellipse:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+@keyframes earWiggle {
+  0%, 100% {
+    transform: rotate(-20deg, 15, -25) scale(1);
+  }
+  50% {
+    transform: rotate(-20deg, 15, -25) scale(1.1);
+  }
+}
+
+.dog ellipse:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+@keyframes earWiggle2 {
+  0%, 100% {
+    transform: rotate(20deg, 25, -25) scale(1);
+  }
+  50% {
+    transform: rotate(20deg, 25, -25) scale(1.1);
+  }
+}
+
+/* 装饰元素动画 */
+.decorations rect {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.decorations g {
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 小狗眼睛闪烁动画 */
+.dog circle:nth-child(4),
+.dog circle:nth-child(5) {
+  animation: blink 3s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 90%, 100% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.3;
+  }
+}
+
+/* 小狗状态相关动画 */
+.dog.happy .tail {
+  animation: tailWag 0.5s ease-in-out infinite;
+}
+
+.dog.excited .tail {
+  animation: tailWag 0.3s ease-in-out infinite;
+}
+
+.dog.happy ellipse {
+  animation: earWiggle 1s ease-in-out infinite;
+}
+
+.dog.excited ellipse {
+  animation: earWiggle 0.5s ease-in-out infinite;
+}
+
+/* 整体呼吸效果 */
+.dog-walking-animation {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* 小狗状态消息样式 */
+.dog-message {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #333;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+  animation: messagePop 0.5s ease-out;
+  display: inline-block;
+}
+
+.dog-message.happy {
+  background: linear-gradient(135deg, #90EE90, #32CD32);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(144, 238, 144, 0.3);
+}
+
+.dog-message.excited {
+  background: linear-gradient(135deg, #FF69B4, #FF1493);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+  animation: messagePop 0.3s ease-out;
+}
+
+@keyframes messagePop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 交互提示样式 */
+.interaction-hint {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* 蝴蝶动画 */
+.butterfly {
+  animation: butterflyFly 4s ease-in-out infinite;
+}
+
+@keyframes butterflyFly {
+  0%, 100% {
+    transform: translate(420px, 100px) rotate(0deg);
+  }
+  25% {
+    transform: translate(420px, 100px) rotate(15deg) translateY(-5px);
+  }
+  50% {
+    transform: translate(420px, 100px) rotate(0deg) translateY(0px);
+  }
+  75% {
+    transform: translate(420px, 100px) rotate(-15deg) translateY(-5px);
   }
 }
 </style>
